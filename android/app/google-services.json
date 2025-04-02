@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "908468746180",
+    "project_id": "rock-scanner-97922",
+    "storage_bucket": "rock-scanner-97922.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:908468746180:android:137f807ea1c37ccc0a5691",
+        "android_client_info": {
+          "package_name": "com.example.rock_scanner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXMrL9UrpUNcNw8o3XtPtU6w5Yds9IDjY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
