@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:rock_scanner/screens/login_screen.dart';
 import '../theme/const.dart';
 import '../theme/light_dark_theme.dart';
 import '../widgets/pass_field.dart';
@@ -109,7 +110,10 @@ class RegisterScreen extends StatelessWidget {
                       ),
                       TextButton(
                         onPressed: () {
-                          Navigator.pushNamed(context, '/login');
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => LoginScreen()));
                         },
                         child: const Text(
                           'Login here',

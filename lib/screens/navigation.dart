@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rock_scanner/screens/account.dart';
 import 'package:rock_scanner/screens/discover.dart';
-import 'package:rock_scanner/screens/dummyclass.dart';
+import 'package:rock_scanner/screens/rocks_type.dart';
 import 'package:rock_scanner/screens/home_page.dart';
 import '../widgets/custom_bar.dart';
 
@@ -22,7 +22,7 @@ class _NavigationPageState extends State<NavigationPage> {
   final List<Widget> _pages = [
     HomePage(),
     //DiscoveryPage(),
-    Dummyclass(),
+    RocksType(),
     AccountPage(),
   ];
 

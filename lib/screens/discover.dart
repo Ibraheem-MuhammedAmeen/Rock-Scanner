@@ -1,9 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:rock_scanner/screens/rocks_type.dart';
 import 'package:rock_scanner/theme/light_dark_theme.dart';
-import 'package:rock_scanner/widgets/horizontal_listView.dart';
 import 'package:rock_scanner/widgets/popular_rocks_widget.dart';
 import '../service/gemini_service.dart';
 
