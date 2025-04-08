@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:get/get.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:provider/provider.dart';
+import 'package:rock_scanner/model/metamorphic_model.dart';
 import 'package:rock_scanner/screens/account.dart';
 import 'package:rock_scanner/screens/home_screen.dart';
 import 'package:rock_scanner/service/dependency_injection.dart';
@@ -22,9 +24,11 @@ void main() async {
   await Firebase.initializeApp(); // Initialize Firebase
   final dir = await getApplicationDocumentsDirectory();
   Hive.init(dir.path);
-  Hive.registerAdapter(RockModelAdapter());
+  Hive.initFlutter();
+  //Hive.registerAdapter(RockModelAdapter());
 
   await Hive.openBox<SedmentedRockModel>('rocks');
+  await Hive.openBox<MetamorphicRockModel>('rocks');
   runApp(
     MultiProvider(
       providers: [

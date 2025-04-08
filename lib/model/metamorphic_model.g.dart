@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'sedimeted_model.dart';
+part of 'metamorphic_model.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class SedmentedRockModelAdapter extends TypeAdapter<SedmentedRockModel> {
+class MetamorphicRockModelAdapter extends TypeAdapter<MetamorphicRockModel> {
   @override
   final int typeId = 0;
 
   @override
-  SedmentedRockModel read(BinaryReader reader) {
+  MetamorphicRockModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return SedmentedRockModel(
+    return MetamorphicRockModel(
       name: fields[0] as String,
       desc: fields[1] as String,
       image: fields[2] as String,
@@ -24,7 +24,7 @@ class SedmentedRockModelAdapter extends TypeAdapter<SedmentedRockModel> {
   }
 
   @override
-  void write(BinaryWriter writer, SedmentedRockModel obj) {
+  void write(BinaryWriter writer, MetamorphicRockModel obj) {
     writer
       ..writeByte(3)
       ..writeByte(0)
@@ -41,7 +41,7 @@ class SedmentedRockModelAdapter extends TypeAdapter<SedmentedRockModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is SedmentedRockModelAdapter &&
+      other is MetamorphicRockModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }
