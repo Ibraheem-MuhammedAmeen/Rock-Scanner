@@ -3,18 +3,6 @@ import 'package:hive/hive.dart';
 
 import '../../model/metamorphic_model.dart';
 
-/*class MetamorphicRock extends StatelessWidget {
-  const MetamorphicRock({super.key});
-
-
-  @override
-  Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Matamorphic'),
-    );
-    ;
-  }
-}*/
 class MetamorphicRock extends StatefulWidget {
   const MetamorphicRock({super.key});
 
@@ -28,7 +16,7 @@ class _MetamorphicRockState extends State<MetamorphicRock> {
   @override
   void initState() {
     super.initState();
-    rockBox = Hive.box<MetamorphicRockModel>('rocks');
+    rockBox = Hive.box<MetamorphicRockModel>('MetamorphicRocks');
     _populateRocksIfNeeded();
   }
 

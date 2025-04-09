@@ -25,10 +25,11 @@ void main() async {
   final dir = await getApplicationDocumentsDirectory();
   Hive.init(dir.path);
   Hive.initFlutter();
-  //Hive.registerAdapter(RockModelAdapter());
+  Hive.registerAdapter(SedmentedRockModelAdapter());
+  Hive.registerAdapter(MetamorphicRockModelAdapter());
 
   await Hive.openBox<SedmentedRockModel>('rocks');
-  await Hive.openBox<MetamorphicRockModel>('rocks');
+  await Hive.openBox<MetamorphicRockModel>('MetamorphicRocks');
   runApp(
     MultiProvider(
       providers: [
