@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
 import '../../model/sedimeted_model.dart';
+import '../../screens/detail_screen.dart';
 
 class SedimentaryRocks extends StatefulWidget {
   const SedimentaryRocks({super.key});
@@ -126,6 +127,13 @@ class _SedimentaryRocksState extends State<SedimentaryRocks> {
 
               return InkWell(
                 splashColor: Colors.grey,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailScreen(
+                              name: rock.name, Image: rock.image)));
+                },
                 child: Card(
                   color: Colors.grey[900],
                   margin: const EdgeInsets.only(bottom: 12),

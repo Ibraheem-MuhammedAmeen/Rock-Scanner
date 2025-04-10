@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 
 import '../../model/metamorphic_model.dart';
+import '../../screens/detail_screen.dart';
 
 class MetamorphicRock extends StatefulWidget {
   const MetamorphicRock({super.key});
@@ -141,6 +142,13 @@ class _MetamorphicRockState extends State<MetamorphicRock> {
 
               return InkWell(
                 splashColor: Colors.grey,
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => DetailScreen(
+                              name: rock.name, Image: rock.image)));
+                },
                 child: Card(
                   color: Colors.grey[900],
                   margin: const EdgeInsets.only(bottom: 12),

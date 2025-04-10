@@ -40,7 +40,6 @@ class _RocksTypeState extends State<RocksType> {
   }
 
   void _onButtonPressed(String rockType) {
-    print("Tapped: $rockType");
     setState(() {
       _controller.text = '$rockType';
     });
