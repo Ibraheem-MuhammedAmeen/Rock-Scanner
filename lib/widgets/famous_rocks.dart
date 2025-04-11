@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rock_scanner/screens/detail_screen.dart';
 import 'package:rock_scanner/widgets/popular_rocks_widget.dart';
 
 import '../theme/light_dark_theme.dart';
@@ -8,6 +9,20 @@ class FamousRocks extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List<String> rocks = [
+      'Granite',
+      'Basalt',
+      'Limestone',
+      'Sandstone',
+      'Slate'
+    ];
+    List<String> images = [
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSkBneftF74PWIra_c8TG3a220XQ-Vmt47ptwU2AU501cXkm3OgQDS19Y&s',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTXLwQJy3PuM3_l1qx9zEiBfDsY_7kQeP2oy9x-cTIz_flK7C9e6xkol08&s',
+      'https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcSVeHtirbQfXXmELOarkr1cghw-TYM0U75o09JKEQZ3WQ2iWjytK07XRqu1deUCdSNyZC-SPl3zO7E0RIS94DCeTT7EURhWWD8o41DE-Hbb',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuF5EMQk85RVgHk_dzFjphSHQBTEftJ9S8EA&s',
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdRsMPBOka3Y2O8Thf028dE9SEUOf055LkfmDjbjB9pATyBj-vR65RxKA&s'
+    ];
     return Column(
       children: [
         Padding(
@@ -29,40 +44,26 @@ class FamousRocks extends StatelessWidget {
         ),
         SizedBox(
           height: 130,
-          child: ListView(
+          child: ListView.separated(
+            separatorBuilder: (context, index) => const SizedBox(width: 12),
             scrollDirection: Axis.horizontal,
-            children: [
-              PopularRocks(
-                onTap: () {},
-                name: 'Granite',
-                imagUrl: 'assets/images/granite.png',
-              ),
-              const SizedBox(width: 20),
-              PopularRocks(
-                onTap: () {},
-                name: 'Basalt',
-                imagUrl: 'assets/images/basalt.png',
-              ),
-              const SizedBox(width: 20),
-              PopularRocks(
-                onTap: () {},
-                name: 'Limestone',
-                imagUrl: 'assets/images/limeStone.png',
-              ),
-              const SizedBox(width: 20),
-              PopularRocks(
-                onTap: () {},
-                name: 'Sandstone',
-                imagUrl: 'assets/images/sandStone.png',
-              ),
-              const SizedBox(width: 20),
-              PopularRocks(
-                onTap: () {},
-                name: 'Slate',
-                imagUrl: 'assets/images/slate.png',
-              ),
-              const SizedBox(width: 20),
-            ],
+            itemCount: rocks.length,
+            itemBuilder: (context, index) {
+              return PopularRocks(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => DetailScreen(
+                          name: rocks[index],
+                          image: images[index],
+                        ),
+                      ),
+                    );
+                  },
+                  name: rocks[index],
+                  imagUrl: images[index]);
+            },
           ),
         ),
         Padding(
@@ -86,7 +87,7 @@ class FamousRocks extends StatelessWidget {
           onTap: () {},
           child: Container(
             width: double.infinity,
-            height: 150,
+            height: 130,
             decoration: BoxDecoration(
               color: AppColors.IconBackground,
               borderRadius: BorderRadius.circular(30),
@@ -101,15 +102,15 @@ class FamousRocks extends StatelessWidget {
                   style: TextStyle(
                     fontFamily: 'Montserrat',
                     fontWeight: FontWeight.bold,
-                    fontSize: 20,
+                    fontSize: 19,
                   ),
                 ),
-                SizedBox(height: 13),
+                SizedBox(height: 9),
                 Text(
-                  'Experience rocks in your reality space with \n our AR',
+                  'Experience rocks in your reality space with\n our AR',
                   style: TextStyle(
                     fontFamily: 'Montserrat',
-                    fontSize: 16,
+                    fontSize: 14,
                   ),
                 )
               ],

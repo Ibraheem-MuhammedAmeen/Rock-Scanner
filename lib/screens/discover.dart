@@ -1,3 +1,4 @@
+/*
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
@@ -92,10 +93,12 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                 child: ListView(
                   scrollDirection: Axis.horizontal,
                   children: [
-                    /*HorizontalListview(Name: 'Sedimentary'),
+                    */
+/*HorizontalListview(Name: 'Sedimentary'),
                     HorizontalListview(Name: 'Metamorphic'),
                     HorizontalListview(Name: 'Igneous'),
-                    HorizontalListview(Name: 'Mineral'),*/
+                    HorizontalListview(Name: 'Mineral'),*/ /*
+
                   ],
                 ),
               ),
@@ -206,7 +209,8 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                 ),
               )
 
-              /*Container(
+              */
+/*Container(
                 padding: EdgeInsets.all(12),
                 decoration: BoxDecoration(
                   color: Colors.grey[800],
@@ -220,7 +224,8 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
                   ),
                   textAlign: TextAlign.center,
                 ),
-              ),*/
+              ),*/ /*
+
             ],
           ),
         ),
@@ -228,3 +233,4 @@ class _DiscoveryPageState extends State<DiscoveryPage> {
     );
   }
 }
+*/

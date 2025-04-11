@@ -22,17 +22,17 @@ class ActionsWidget extends StatelessWidget {
         children: [
           Icon(
             icon,
-            size: 30,
+            size: 20,
           ),
-          SizedBox(width: 30),
+          SizedBox(width: 20),
           Text(
             text,
-            style: TextStyle(fontSize: 19, fontFamily: 'Montserrat'),
+            style: TextStyle(fontSize: 14, fontFamily: 'Montserrat'),
           ),
           Spacer(),
           Icon(
             CupertinoIcons.arrow_right,
-            size: 25,
+            size: 19,
           ),
         ],
       ),

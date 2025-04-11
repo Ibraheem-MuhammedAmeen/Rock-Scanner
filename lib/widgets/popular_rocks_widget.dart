@@ -30,7 +30,7 @@ class PopularRocks extends StatelessWidget {
             ClipRRect(
               borderRadius: BorderRadius.circular(
                   30), // Match border radius with container
-              child: Image.asset(
+              child: Image.network(
                 imagUrl,
                 width: 60, // Set a proper width
                 height: 60, // Set a proper height

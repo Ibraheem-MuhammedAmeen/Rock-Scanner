@@ -65,7 +65,7 @@ class _AccountPageState extends State<AccountPage> {
                         'Hello User',
                         style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 24,
+                          fontSize: 19,
                           fontFamily: 'Montserrat',
                           fontWeight: FontWeight.bold,
                         ),
@@ -75,7 +75,7 @@ class _AccountPageState extends State<AccountPage> {
                         accountVM.userEmail ?? "No user logged in",
                         style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 19,
+                          fontSize: 15,
                         ),
                       ),
                     ],

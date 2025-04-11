@@ -147,7 +147,7 @@ class _MetamorphicRockState extends State<MetamorphicRock> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => DetailScreen(
-                              name: rock.name, Image: rock.image)));
+                              name: rock.name, image: rock.image)));
                 },
                 child: Card(
                   color: Colors.grey[900],

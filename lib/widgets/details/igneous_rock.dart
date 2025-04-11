@@ -125,7 +125,7 @@ class _IgneousRockState extends State<IgneousRock> {
                       context,
                       MaterialPageRoute(
                           builder: (context) => DetailScreen(
-                              name: rock.name, Image: rock.image)));
+                              name: rock.name, image: rock.image)));
                 },
                 splashColor: Colors.grey,
                 child: Card(

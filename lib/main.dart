@@ -13,6 +13,7 @@ import 'package:rock_scanner/screens/home_screen.dart';
 import 'package:rock_scanner/service/dependency_injection.dart';
 import 'package:rock_scanner/theme/light_dark_theme.dart';
 import 'package:rock_scanner/viewmodels/account_viewmodel.dart';
+import 'package:rock_scanner/viewmodels/details_viewmodel.dart';
 import 'package:rock_scanner/viewmodels/login_viewmodel.dart';
 import 'package:rock_scanner/viewmodels/register_viewmodel.dart';
 import 'package:path_provider/path_provider.dart';
@@ -43,6 +44,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => RegisterViewModel()),
         ChangeNotifierProvider(create: (_) => LoginViewModel()),
         ChangeNotifierProvider(create: (_) => AccountView()),
+        ChangeNotifierProvider(create: (_) => DetailsView()),
       ],
       child: const MyApp(),
     ),
