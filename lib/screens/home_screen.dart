@@ -8,9 +8,14 @@ import 'package:ionicons/ionicons.dart';
 
 import 'login_screen.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,47 +41,53 @@ class HomeScreen extends StatelessWidget {
                 style: textDec,
               ),
               const SizedBox(height: 20),
-              Container(
-                height: 200,
-                width: 200,
-                decoration: BoxDecoration(
-                  color: AppColors.IconBackground,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Ionicons.camera_reverse_outline,
-                      size: 100,
-                    ),
-                    Text(
-                      'Take a picture',
-                      style: fontFam,
-                    ),
-                  ],
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  height: 200,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: AppColors.IconBackground,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Ionicons.camera_reverse_outline,
+                        size: 100,
+                      ),
+                      Text(
+                        'Take a picture',
+                        style: fontFam,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
-              Container(
-                height: 200,
-                width: 200,
-                decoration: BoxDecoration(
-                  color: AppColors.IconBackground,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Ionicons.image_outline,
-                      size: 100,
-                    ),
-                    Text(
-                      'From Gallery',
-                      style: fontFam,
-                    ),
-                  ],
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  height: 200,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: AppColors.IconBackground,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Ionicons.image_outline,
+                        size: 100,
+                      ),
+                      Text(
+                        'From Gallery',
+                        style: fontFam,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 20),

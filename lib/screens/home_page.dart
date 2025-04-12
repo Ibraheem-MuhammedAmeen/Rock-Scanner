@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:image_picker/image_picker.dart';
 
 import '../theme/const.dart';
 import '../theme/light_dark_theme.dart';
@@ -12,6 +13,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  Future<void> pickImageAndScan(ImageSource source) async {
+    final image = await ImagePicker().pickImage(source: source);
+    if (image == null) return;
+
+    final imageFile = File(image.path);
+    await askAiToScan(imageFile);
+  }
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,47 +47,53 @@ class _HomePageState extends State<HomePage> {
                 style: textDec,
               ),
               const SizedBox(height: 20),
-              Container(
-                height: 200,
-                width: 200,
-                decoration: BoxDecoration(
-                  color: AppColors.IconBackground,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Ionicons.camera_reverse_outline,
-                      size: 100,
-                    ),
-                    Text(
-                      'Take a picture',
-                      style: fontFam,
-                    ),
-                  ],
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  height: 200,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: AppColors.IconBackground,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Ionicons.camera_reverse_outline,
+                        size: 100,
+                      ),
+                      Text(
+                        'Take a picture',
+                        style: fontFam,
+                      ),
+                    ],
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
-              Container(
-                height: 200,
-                width: 200,
-                decoration: BoxDecoration(
-                  color: AppColors.IconBackground,
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: const Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Icon(
-                      Ionicons.image_outline,
-                      size: 100,
-                    ),
-                    Text(
-                      'From Gallery',
-                      style: fontFam,
-                    ),
-                  ],
+              GestureDetector(
+                onTap: () {},
+                child: Container(
+                  height: 200,
+                  width: 200,
+                  decoration: BoxDecoration(
+                    color: AppColors.IconBackground,
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: const Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Icon(
+                        Ionicons.image_outline,
+                        size: 100,
+                      ),
+                      Text(
+                        'From Gallery',
+                        style: fontFam,
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ],
