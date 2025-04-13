@@ -18,7 +18,7 @@ class PopularRocks extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        width: 170, // Ensure each container has a fixed width for consistency
+        width: 155, // Ensure each container has a fixed width for consistency
         decoration: BoxDecoration(
           color: AppColors.IconBackground,
           borderRadius: BorderRadius.circular(30), // Corrected border radius
@@ -29,11 +29,11 @@ class PopularRocks extends StatelessWidget {
           children: [
             ClipRRect(
               borderRadius: BorderRadius.circular(
-                  30), // Match border radius with container
+                  50), // Match border radius with container
               child: Image.network(
                 imagUrl,
-                width: 60, // Set a proper width
-                height: 60, // Set a proper height
+                width: 40, // Set a proper width
+                height: 40, // Set a proper height
                 fit: BoxFit.cover, // Ensures image fills space
               ),
             ),

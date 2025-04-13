@@ -23,101 +23,104 @@ class FamousRocks extends StatelessWidget {
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuF5EMQk85RVgHk_dzFjphSHQBTEftJ9S8EA&s',
       'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdRsMPBOka3Y2O8Thf028dE9SEUOf055LkfmDjbjB9pATyBj-vR65RxKA&s'
     ];
-    return Column(
-      children: [
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 16,
-            bottom: 16,
-          ),
-          child: Container(
-            alignment: Alignment.topLeft,
-            child: const Text(
-              'Popular Rocks',
-              style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 16,
+              bottom: 16,
             ),
-          ),
-        ),
-        SizedBox(
-          height: 130,
-          child: ListView.separated(
-            separatorBuilder: (context, index) => const SizedBox(width: 12),
-            scrollDirection: Axis.horizontal,
-            itemCount: rocks.length,
-            itemBuilder: (context, index) {
-              return PopularRocks(
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailScreen(
-                          name: rocks[index],
-                          image: images[index],
-                        ),
-                      ),
-                    );
-                  },
-                  name: rocks[index],
-                  imagUrl: images[index]);
-            },
-          ),
-        ),
-        Padding(
-          padding: const EdgeInsets.only(
-            top: 16,
-            bottom: 16,
-          ),
-          child: Container(
-            alignment: Alignment.topLeft,
-            child: const Text(
-              'AR',
-              style: TextStyle(
-                fontFamily: 'Montserrat',
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-          ),
-        ),
-        InkWell(
-          onTap: () {},
-          child: Container(
-            width: double.infinity,
-            height: 130,
-            decoration: BoxDecoration(
-              color: AppColors.IconBackground,
-              borderRadius: BorderRadius.circular(30),
-            ),
-            padding: EdgeInsets.all(16),
-            child: const Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'Rock 3D',
-                  style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.bold,
-                    fontSize: 19,
-                  ),
+            child: Container(
+              alignment: Alignment.topLeft,
+              child: const Text(
+                'Popular Rocks',
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
                 ),
-                SizedBox(height: 9),
-                Text(
-                  'Experience rocks in your reality space with\n our AR',
-                  style: TextStyle(
-                    fontFamily: 'Montserrat',
-                    fontSize: 14,
-                  ),
-                )
-              ],
+              ),
             ),
           ),
-        )
-      ],
+          SizedBox(
+            height: 105,
+            child: ListView.separated(
+              separatorBuilder: (context, index) => const SizedBox(width: 12),
+              scrollDirection: Axis.horizontal,
+              itemCount: rocks.length,
+              itemBuilder: (context, index) {
+                return PopularRocks(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetailScreen(
+                            name: rocks[index],
+                            image: images[index],
+                          ),
+                        ),
+                      );
+                    },
+                    name: rocks[index],
+                    imagUrl: images[index]);
+              },
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(
+              top: 16,
+              bottom: 16,
+            ),
+            child: Container(
+              alignment: Alignment.topLeft,
+              child: const Text(
+                'AR',
+                style: TextStyle(
+                  fontFamily: 'Montserrat',
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          InkWell(
+            onTap: () {},
+            child: Container(
+              width: double.infinity,
+              height: 130,
+              decoration: BoxDecoration(
+                color: AppColors.IconBackground,
+                borderRadius: BorderRadius.circular(30),
+              ),
+              padding: EdgeInsets.all(16),
+              child: const Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'Rock 3D',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.bold,
+                      fontSize: 19,
+                    ),
+                  ),
+                  SizedBox(height: 9),
+                  Text(
+                    'Experience rocks in your reality space with\n our AR',
+                    style: TextStyle(
+                      fontFamily: 'Montserrat',
+                      fontSize: 14,
+                    ),
+                  )
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
     );
   }
 }

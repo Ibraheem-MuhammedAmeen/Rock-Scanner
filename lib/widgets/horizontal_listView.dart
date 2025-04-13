@@ -15,20 +15,24 @@ class HorizontalListview extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      style: ElevatedButton.styleFrom(
-        backgroundColor: isPressed ? AppColors.IconBackground : Colors.black12,
-        foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(27),
+    return SizedBox(
+      height: 143,
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          backgroundColor:
+              isPressed ? AppColors.IconBackground : Colors.black12,
+          foregroundColor: Colors.white,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(27),
+          ),
         ),
-      ),
-      onPressed: onTap,
-      child: Text(
-        Name,
-        style: const TextStyle(
-          fontSize: 15,
-          fontFamily: 'Montserrat',
+        onPressed: onTap,
+        child: Text(
+          Name,
+          style: const TextStyle(
+            fontSize: 13,
+            fontFamily: 'Montserrat',
+          ),
         ),
       ),
     );
