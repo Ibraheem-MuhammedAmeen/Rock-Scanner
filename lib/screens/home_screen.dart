@@ -6,6 +6,7 @@ import 'package:rock_scanner/theme/const.dart';
 import 'package:rock_scanner/theme/light_dark_theme.dart';
 import 'package:ionicons/ionicons.dart';
 
+import '../widgets/scan_button.dart';
 import 'login_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -41,54 +42,20 @@ class _HomeScreenState extends State<HomeScreen> {
                 style: textDec,
               ),
               const SizedBox(height: 20),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    color: AppColors.IconBackground,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Ionicons.camera_reverse_outline,
-                        size: 100,
-                      ),
-                      Text(
-                        'Take a picture',
-                        style: fontFam,
-                      ),
-                    ],
-                  ),
-                ),
+              ScanButton(
+                onTap: () {
+                  //pickImageAndScan(ImageSource.camera);
+                },
+                label: 'Take a picture',
+                icon: Ionicons.camera_reverse_outline,
               ),
               const SizedBox(height: 20),
-              GestureDetector(
-                onTap: () {},
-                child: Container(
-                  height: 200,
-                  width: 200,
-                  decoration: BoxDecoration(
-                    color: AppColors.IconBackground,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: const Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Ionicons.image_outline,
-                        size: 100,
-                      ),
-                      Text(
-                        'From Gallery',
-                        style: fontFam,
-                      ),
-                    ],
-                  ),
-                ),
+              ScanButton(
+                onTap: () {
+                  //pickImageAndScan(ImageSource.gallery);
+                },
+                label: 'From Gallery',
+                icon: Ionicons.image_outline,
               ),
               const SizedBox(height: 20),
               TextButton(

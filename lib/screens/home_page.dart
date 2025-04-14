@@ -9,6 +9,7 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:rock_scanner/screens/scan_result.dart';
+import 'package:rock_scanner/widgets/scan_button.dart';
 
 import '../theme/const.dart';
 import '../theme/light_dark_theme.dart';
@@ -127,58 +128,20 @@ class _HomePageState extends State<HomePage> {
                       style: textDec,
                     ),
                     const SizedBox(height: 20),
-                    GestureDetector(
+                    ScanButton(
                       onTap: () {
                         pickImageAndScan(ImageSource.camera);
                       },
-                      child: Container(
-                        height: 200,
-                        width: 200,
-                        decoration: BoxDecoration(
-                          color: AppColors.IconBackground,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Ionicons.camera_reverse_outline,
-                              size: 100,
-                            ),
-                            Text(
-                              'Take a picture',
-                              style: fontFam,
-                            ),
-                          ],
-                        ),
-                      ),
+                      label: 'Take a picture',
+                      icon: Ionicons.camera_reverse_outline,
                     ),
                     const SizedBox(height: 20),
-                    GestureDetector(
+                    ScanButton(
                       onTap: () {
                         pickImageAndScan(ImageSource.gallery);
                       },
-                      child: Container(
-                        height: 200,
-                        width: 200,
-                        decoration: BoxDecoration(
-                          color: AppColors.IconBackground,
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: const Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(
-                              Ionicons.image_outline,
-                              size: 100,
-                            ),
-                            Text(
-                              'From Gallery',
-                              style: fontFam,
-                            ),
-                          ],
-                        ),
-                      ),
+                      label: 'From Gallery',
+                      icon: Ionicons.image_outline,
                     ),
                   ],
                 ),
