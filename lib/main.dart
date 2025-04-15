@@ -8,12 +8,14 @@ import 'package:provider/provider.dart';
 import 'package:rock_scanner/model/igneous_model.dart';
 import 'package:rock_scanner/model/metamorphic_model.dart';
 import 'package:rock_scanner/model/mineral_model.dart';
+import 'package:rock_scanner/model/save_history.dart';
 import 'package:rock_scanner/screens/account.dart';
 import 'package:rock_scanner/screens/home_screen.dart';
 import 'package:rock_scanner/service/dependency_injection.dart';
 import 'package:rock_scanner/theme/light_dark_theme.dart';
 import 'package:rock_scanner/viewmodels/account_viewmodel.dart';
 import 'package:rock_scanner/viewmodels/details_viewmodel.dart';
+import 'package:rock_scanner/viewmodels/loading_provide.dart';
 import 'package:rock_scanner/viewmodels/login_viewmodel.dart';
 import 'package:rock_scanner/viewmodels/register_viewmodel.dart';
 import 'package:path_provider/path_provider.dart';
@@ -33,11 +35,13 @@ void main() async {
   Hive.registerAdapter(MetamorphicRockModelAdapter());
   Hive.registerAdapter(IgneousRockModelAdapter());
   Hive.registerAdapter(MineralRockModelAdapter());
+  Hive.registerAdapter(SaveHistoryAdapter());
 
   await Hive.openBox<SedmentedRockModel>('rocks');
   await Hive.openBox<MetamorphicRockModel>('MetamorphicRocks');
   await Hive.openBox<IgneousRockModel>('IgneousRocks');
   await Hive.openBox<MineralRockModel>('MineralRocks');
+  await Hive.openBox<SaveHistory>('History');
   runApp(
     MultiProvider(
       providers: [
@@ -45,6 +49,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => LoginViewModel()),
         ChangeNotifierProvider(create: (_) => AccountView()),
         ChangeNotifierProvider(create: (_) => DetailsView()),
+        ChangeNotifierProvider(create: (_) => LoadingProvider()),
       ],
       child: const MyApp(),
     ),

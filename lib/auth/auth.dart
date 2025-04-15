@@ -38,7 +38,10 @@ class AuthService {
         );
         return null;
       }
+      email.trim();
+      password.trim();
       dynamic userCredential;
+
       try {
         userCredential = await _auth.signInWithEmailAndPassword(
           email: email,
@@ -88,7 +91,8 @@ class AuthService {
           ),
         );
       }
-
+      email.trim();
+      password.trim();
       UserCredential userCredential =
           await _auth.createUserWithEmailAndPassword(
         email: email,

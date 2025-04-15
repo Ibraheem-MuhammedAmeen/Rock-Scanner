@@ -2,9 +2,11 @@ import 'dart:ffi';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:rock_scanner/theme/const.dart';
 import 'package:rock_scanner/theme/light_dark_theme.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:rock_scanner/widgets/image_picker.dart';
 
 import '../widgets/scan_button.dart';
 import 'login_screen.dart';
@@ -44,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 20),
               ScanButton(
                 onTap: () {
-                  //pickImageAndScan(ImageSource.camera);
+                  ImagesPicker().pickImageAndScan(ImageSource.camera, context);
                 },
                 label: 'Take a picture',
                 icon: Ionicons.camera_reverse_outline,
@@ -52,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: 20),
               ScanButton(
                 onTap: () {
-                  //pickImageAndScan(ImageSource.gallery);
+                  ImagesPicker().pickImageAndScan(ImageSource.gallery, context);
                 },
                 label: 'From Gallery',
                 icon: Ionicons.image_outline,

@@ -7,6 +7,8 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
+import 'package:rock_scanner/screens/history.dart';
+import 'package:rock_scanner/service/history_service.dart';
 
 import '../screens/scan_result.dart';
 import '../viewmodels/loading_provide.dart';
@@ -15,6 +17,7 @@ class GeminiService {
   late final String apiKey;
   late final String apiUrl;
 
+  var _historyService = HistoryService();
   GeminiService() {
     apiKey = dotenv.env['GEMINI_API_KEY'] ?? "";
     apiUrl =
@@ -48,7 +51,6 @@ class GeminiService {
   Future<void> askAiToScan({
     required BuildContext context,
     required File imageFile,
-    required void Function(String answer, String base64Image) onResult,
   }) async {
     final loading = Provider.of<LoadingProvider>(context, listen: false);
     try {
@@ -81,8 +83,6 @@ class GeminiService {
 
       loading.stopLoading();
 
-      onResult(resultText, base64Image);
-
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -91,6 +91,10 @@ class GeminiService {
             result: resultText,
           ),
         ),
+      );
+      _historyService.saveHistory(
+        answer: response.text!,
+        base64Image: base64Encode(compressedImage),
       );
     } catch (e) {
       loading.stopLoading();

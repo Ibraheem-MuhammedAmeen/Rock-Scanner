@@ -50,6 +50,7 @@ dependencies:
   hive_flutter: ^1.1.0
   flutter_image_compress: ^2.4.0
   google_generative_ai: ^0.4.6
+  intl: ^0.18.1
 
 
 dev_dependencies:

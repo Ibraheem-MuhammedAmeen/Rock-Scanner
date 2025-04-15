@@ -8,11 +8,14 @@ import 'package:flutter_image_compress/flutter_image_compress.dart';
 import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:provider/provider.dart';
 import 'package:rock_scanner/screens/scan_result.dart';
 import 'package:rock_scanner/widgets/scan_button.dart';
 
 import '../theme/const.dart';
 import '../theme/light_dark_theme.dart';
+import '../viewmodels/loading_provide.dart';
+import '../widgets/image_picker.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -22,86 +25,11 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isLoading = false;
-  String aiResult = "";
-  Timer? timer;
-  Future<void> pickImageAndScan(ImageSource source) async {
-    final image = await ImagePicker().pickImage(source: source);
-    if (image == null) return;
-
-    final imageFile = File(image.path);
-    await askAiToScan(imageFile);
-  }
-
-  void saveHistory({required String answer, required String base64Image}) {
-    // Save your AI results here (local db, Hive, etc.)
-  }
-
-  Future<void> askAiToScan(File imageFile) async {
-    try {
-      setState(() {
-        isLoading = true;
-      });
-
-      final apiKey = dotenv.env['GEMINI_API_KEY'];
-      final model = GenerativeModel(
-        model: 'gemini-1.5-flash-latest',
-        apiKey: apiKey!,
-      );
-
-      final imageBytes = await imageFile.readAsBytes();
-
-      // Compress for Gemini
-      final compressedImage = await FlutterImageCompress.compressWithList(
-        imageBytes,
-        minHeight: 1280,
-        minWidth: 720,
-        quality: 30,
-      );
-
-      const String scanQuery = "What kind of rock is this?";
-
-      final prompt =
-          TextPart(scanQuery); // scanQuery = "What kind of rock is this?"
-      final imagePart = [DataPart('image/jpeg', compressedImage)];
-
-      final content = [
-        Content.multi([prompt, ...imagePart])
-      ];
-
-      final response = await model.generateContent(content);
-      timer?.cancel(); // only if you have a timer in context
-
-      setState(() {
-        isLoading = false;
-        aiResult = response.text!;
-      });
-      Navigator.push(
-        context,
-        MaterialPageRoute(
-          builder: (context) => ScanResult(
-              image: base64Encode(compressedImage), result: response.text),
-        ),
-      );
-
-      saveHistory(
-        answer: response.text!,
-        base64Image: base64Encode(compressedImage),
-      );
-      print('this is the resultts$aiResult');
-    } catch (e) {
-      setState(() {
-        isLoading = false;
-        aiResult = "Failed to connect :(";
-      });
-      debugPrint("Error scanning rock: $e");
-    }
-  }
-
   @override
   Widget build(BuildContext context) {
+    final loading = Provider.of<LoadingProvider>(context).isLoading;
     return Scaffold(
-      body: isLoading
+      body: loading
           ? Center(
               child: CircularProgressIndicator(),
             )
@@ -130,7 +58,8 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(height: 20),
                     ScanButton(
                       onTap: () {
-                        pickImageAndScan(ImageSource.camera);
+                        ImagesPicker()
+                            .pickImageAndScan(ImageSource.camera, context);
                       },
                       label: 'Take a picture',
                       icon: Ionicons.camera_reverse_outline,
@@ -138,7 +67,8 @@ class _HomePageState extends State<HomePage> {
                     const SizedBox(height: 20),
                     ScanButton(
                       onTap: () {
-                        pickImageAndScan(ImageSource.gallery);
+                        ImagesPicker()
+                            .pickImageAndScan(ImageSource.gallery, context);
                       },
                       label: 'From Gallery',
                       icon: Ionicons.image_outline,
