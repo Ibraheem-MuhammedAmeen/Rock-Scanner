@@ -131,4 +131,25 @@ class AuthService {
       ),
     );
   }
+
+  Future<String?> deleteAccount(BuildContext context) async {
+    try {
+      final user = _auth.currentUser;
+      if (user != null) {
+        await user.delete();
+
+        return "Account deleted successfully";
+      } else {
+        return "No user signed in";
+      }
+    } on FirebaseAuthException catch (e) {
+      // Some accounts need re-auth before delete
+      if (e.code == 'requires-recent-login') {
+        return "You need to re-authenticate before deleting the account.";
+      }
+      return "Delete failed: ${e.message}";
+    } catch (e) {
+      return "Unexpected error: $e";
+    }
+  }
 }

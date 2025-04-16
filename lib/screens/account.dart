@@ -4,11 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 import 'package:rock_scanner/screens/history.dart';
+import 'package:rock_scanner/service/alert_meth.dart';
 import 'package:rock_scanner/service/gemini_service.dart';
 import 'package:rock_scanner/theme/const.dart';
 import 'package:rock_scanner/theme/light_dark_theme.dart';
 import 'package:rock_scanner/viewmodels/account_viewmodel.dart';
 import 'package:rock_scanner/widgets/actions_widget.dart';
+
+import '../viewmodels/loading_provide.dart';
 
 class AccountPage extends StatefulWidget {
   const AccountPage({super.key});
@@ -28,8 +31,10 @@ class _AccountPageState extends State<AccountPage> {
 
   @override
   Widget build(BuildContext context) {
+    final loading = Provider.of<LoadingProvider>(context, listen: false);
+    final account = Provider.of<AccountView>(context, listen: false);
     final accountVM = Provider.of<AccountView>(context);
-
+    var _showAlert = ShowAlert();
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
@@ -132,7 +137,9 @@ class _AccountPageState extends State<AccountPage> {
               ),
               const SizedBox(height: 20),
               ActionsWidget(
-                onTap: () {},
+                onTap: () {
+                  _showAlert.showDeleteDialog(context, account, loading);
+                },
                 text: 'Delete Account',
                 icon: CupertinoIcons.trash,
               ),

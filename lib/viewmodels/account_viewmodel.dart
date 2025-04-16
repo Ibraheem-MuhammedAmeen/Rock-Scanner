@@ -18,4 +18,10 @@ class AccountView with ChangeNotifier {
     _userEmail = null;
     notifyListeners();
   }
+
+  Future<void> deleteAccount(BuildContext context) async {
+    await _authService.deleteAccount(context);
+    _userEmail = null;
+    notifyListeners();
+  }
 }
