@@ -1,0 +1,2 @@
+C:/Users/Abdulmalik/FluterProjects/rock_scanner/android/app/.cxx/RelWithDebInfo/3s5tt6e3/armeabi-v7a/CMakeFiles/edit_cache.dir
+C:/Users/Abdulmalik/FluterProjects/rock_scanner/android/app/.cxx/RelWithDebInfo/3s5tt6e3/armeabi-v7a/CMakeFiles/rebuild_cache.dir
