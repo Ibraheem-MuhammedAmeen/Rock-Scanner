@@ -1,11 +1,10 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:provider/provider.dart';
 import 'package:rock_scanner/screens/history.dart';
 import 'package:rock_scanner/service/alert_meth.dart';
-import 'package:rock_scanner/service/gemini_service.dart';
+
 import 'package:rock_scanner/theme/const.dart';
 import 'package:rock_scanner/theme/light_dark_theme.dart';
 import 'package:rock_scanner/viewmodels/account_viewmodel.dart';

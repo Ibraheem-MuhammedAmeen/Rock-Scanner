@@ -9,7 +9,6 @@ import 'package:rock_scanner/model/igneous_model.dart';
 import 'package:rock_scanner/model/metamorphic_model.dart';
 import 'package:rock_scanner/model/mineral_model.dart';
 import 'package:rock_scanner/model/save_history.dart';
-import 'package:rock_scanner/screens/account.dart';
 import 'package:rock_scanner/screens/home_screen.dart';
 import 'package:rock_scanner/service/dependency_injection.dart';
 import 'package:rock_scanner/theme/light_dark_theme.dart';
@@ -19,7 +18,7 @@ import 'package:rock_scanner/viewmodels/loading_provide.dart';
 import 'package:rock_scanner/viewmodels/login_viewmodel.dart';
 import 'package:rock_scanner/viewmodels/register_viewmodel.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:rock_scanner/widgets/details/mineral_rock.dart';
+
 
 import 'model/sedimeted_model.dart';
 
@@ -64,7 +63,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: AppTheme.dark(ThemeData.dark()),
-      home: HomeScreen(),
+      home: const HomeScreen(),
     );
   }
 }

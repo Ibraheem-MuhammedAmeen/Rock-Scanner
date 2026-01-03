@@ -8,6 +8,7 @@ import '../widgets/pass_field.dart';
 import '../widgets/text_field.dart';
 import '../viewmodels/register_viewmodel.dart';
 
+// ignore: must_be_immutable
 class RegisterScreen extends StatelessWidget {
   RegisterScreen({super.key});
 

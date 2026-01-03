@@ -1,10 +1,8 @@
-import 'dart:ffi';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:rock_scanner/theme/const.dart';
-import 'package:rock_scanner/theme/light_dark_theme.dart';
+
 import 'package:ionicons/ionicons.dart';
 import 'package:rock_scanner/widgets/image_picker.dart';
 

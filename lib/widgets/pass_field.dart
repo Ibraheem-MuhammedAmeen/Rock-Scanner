@@ -19,8 +19,9 @@ class PassFieldWidget extends StatefulWidget {
 }
 
 class _PassFieldWidgetState extends State<PassFieldWidget> {
-  @override
+  
   bool _isObscured = true;
+  @override
   Widget build(BuildContext context) {
     return TextFormField(
       onSaved: widget.onSaved,

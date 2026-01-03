@@ -1,19 +1,13 @@
-import 'dart:async';
-import 'dart:convert';
-import 'dart:io';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-import 'package:flutter_image_compress/flutter_image_compress.dart';
-import 'package:google_generative_ai/google_generative_ai.dart';
+
 import 'package:ionicons/ionicons.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:provider/provider.dart';
-import 'package:rock_scanner/screens/scan_result.dart';
+
 import 'package:rock_scanner/widgets/scan_button.dart';
 
 import '../theme/const.dart';
-import '../theme/light_dark_theme.dart';
+
 import '../viewmodels/loading_provide.dart';
 import '../widgets/image_picker.dart';
 

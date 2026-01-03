@@ -50,9 +50,9 @@ class AuthService {
         Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: (context) => NavigationPage()),
         );
-      } on FirebaseAuthException catch (error) {
+      } on FirebaseAuthException {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text('Incorrect Email or Password')),
+          const SnackBar(content: Text('Incorrect Email or Password')),
         );
       }
 

@@ -7,7 +7,6 @@ import 'package:google_generative_ai/google_generative_ai.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
-import 'package:rock_scanner/screens/history.dart';
 import 'package:rock_scanner/service/history_service.dart';
 
 import '../screens/scan_result.dart';
